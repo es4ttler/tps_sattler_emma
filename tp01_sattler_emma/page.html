@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Formulaire</h1>
+    <div class="col">
+    <form action="" method="post" id="clientForm" onsubmit="validation()">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+            <label for="name">Nom&nbsp;:</label>
+            <input class="form-control" type="text" id="name" name="user_name" pattern="[A-Za-z]{0,20}"required/>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="forname">Prénom&nbsp;:</label>
+                <input class="form-control" type="text" id="forname" name="user_forname" pattern="[A-Za-z]{0,20}" required/>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="civility">Civilité&nbsp;:</label>
+                <select class="form-control" type="text" id="civility" name="user_civility" required>
+                    <option>Monsieur</option>
+                    <option>Madame</option>
+                    <option>Non renseigné</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="cp">Code postal&nbsp;:</label>
+                <input class="form-control" type="text" id="cp" name="user_cp" pattern="[0-9]{5}"required/>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="adress">Adresse&nbsp;:</label>
+                <input class="form-control" type="text" id="adress" name="user_adress" required/>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="city">Ville&nbsp;:</label>
+                <input class="form-control" type="text" id="city" name="user_city" pattern="[A-Za-z]{0,50}" required/>
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="tel">Tél.&nbsp;:</label>
+            <input class="form-control" type="tel" id="tel" name="user_tel" required/>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="mail">E-mail&nbsp;:</label>
+          <input class="form-control" type="email" id="mail" name="user_email" required/>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="password">Mot de passe&nbsp;:</label>
+            <input class="form-control" type="password" id="password" name="user_password" required/>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="passwordConfirm">Confimer mot de passe&nbsp;:</label>
+            <input class="form-control" type="password" id="passwordConfirm" name="user_passwordConfirm" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</body>
+
+<script>
+    var formCheck = document.getElementById("clientForm");
+    // formCheck.onSubmit()=hello();
+    function validation(){
+        console.log("hello");
+        if($("#password").val()!=$("#passwordConfirm").val()){
+            alert("Les mots de passe ne sont pas identiques");
+            $(this).attr('class', " is-invalide");
+        }
+        else{
+            alert("Votre formulaire a bien été pris en compte");
+        }
+
+
+    }
+</script>
